@@ -1,1 +1,1 @@
-NextJS, Typescript
+NextJS, Typescript, Redux-Toolkit
