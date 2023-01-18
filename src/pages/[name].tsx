@@ -39,8 +39,8 @@ export const getStaticProps:GetStaticProps = async (context) => {
 };
 
 const Details = ({countries}:ICountriesArray) => {
-	const currency =Object.values(Object.values(countries[0].currencies)[0])[0] as string
-	const nativeName =Object.values(Object.values(countries[0].name.nativeName)[0])[1] as string
+	const currency = countries[0].currencies && Object.values(Object.values(countries[0].currencies)[0])[0] as string
+	const nativeName = countries[0].name.nativeName && Object.values(Object.values(countries[0].name.nativeName)[0])[1] as string
 	
   return (
     <div className={styles.main}>
@@ -56,16 +56,16 @@ const Details = ({countries}:ICountriesArray) => {
 				<h2 className={styles.mainTitle}>{countries[0].name.common}</h2>
 				<div className={styles.info}>
 					<div>
-						<p className={styles.title}>Native Name: <span className={styles.subtitle}>{nativeName}</span> </p>
+						{nativeName && <p className={styles.title}>Native Name: <span className={styles.subtitle}>{nativeName}</span> </p>}
 						<p className={styles.title}>Population: <span className={styles.subtitle}>{new Intl.NumberFormat().format(countries[0].population)}</span> </p>
 						<p className={styles.title}>Region: <span className={styles.subtitle}>{countries[0].region}</span> </p>
 						<p className={styles.title}>Sub region: <span className={styles.subtitle}>{countries[0].subregion}</span> </p>
 						<p className={styles.title}>Capital: <span className={styles.subtitle}>{countries[0].capital}</span> </p>
 					</div>
 					<div>
-						<p className={styles.title}>Top Level Domain: <span className={styles.subtitle}>{countries[0].tld[0]}</span> </p>
-						<p className={styles.title}>Currencies: <span className={styles.subtitle}>{currency}</span> </p>
-						<p className={styles.title}>Languages: <span className={styles.subtitle}>{Object.values(countries[0].languages).join(', ')}</span> </p>
+						{countries[0].tld && 			<p className={styles.title}>Top Level Domain: <span className={styles.subtitle}>{countries[0].tld[0]}</span> </p>}
+						{currency && <p className={styles.title}>Currencies: <span className={styles.subtitle}>{currency}</span> </p>}
+						{countries[0].languages && <p className={styles.title}>Languages: <span className={styles.subtitle}>{Object.values(countries[0].languages).join(', ')}</span> </p>}
 				
 					</div>
         		</div>
