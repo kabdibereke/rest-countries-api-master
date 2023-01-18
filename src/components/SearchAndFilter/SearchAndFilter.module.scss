@@ -1,0 +1,12 @@
+.wrapper {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width:740px) {
+    .wrapper {
+        flex-direction: column;
+        gap: 25px;
+    }
+}

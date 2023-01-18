@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 18px 18px 24px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+    border-radius: 5px;
+    width: 200px;
+    height: 56px;
+    
+}
+
+.select {
+
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    width: 100%;
+
+    
+}
